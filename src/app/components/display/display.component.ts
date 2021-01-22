@@ -21,31 +21,57 @@ export class DisplayComponent implements OnInit {
     "language",
     "actions"
   ];
-
+  currentUser;
+  showConfirmationPopup = false;
   constructor(private restService: RestService, private router: Router) {}
 
   ngOnInit(): void {
     this.getStudentsData();
   }
-
+  // get students Data
   getStudentsData() {
     this.restService.get(environment.API_HOST).subscribe(res => {
       this.studentData = res;
     });
   }
 
-  deleteRow(student) {
+  // delete particular row with Student ID
+  deleteRow() {
     this.restService
-      .delete(`${environment.API_HOST}/${student.id}`)
+      .delete(`${environment.API_HOST}/${this.currentUser.id}`)
       .subscribe(res => {
         this.getStudentsData();
       });
   }
 
+  selectStudent(student) {
+    this.currentUser = student;
+    this.toggleConfirmationPopup();
+  }
+
+  // to handle confirmation box actions CTA
+  handleConfirmationBoxAction(action) {
+    switch (action) {
+      case "yes":
+        this.deleteRow();
+        break;
+
+      case "no":
+        this.toggleConfirmationPopup();
+        break;
+    }
+  }
+
+  toggleConfirmationPopup() {
+    this.showConfirmationPopup = !this.showConfirmationPopup;
+  }
+
+  // edit particular row with studentID
   editRow(student) {
     this.router.navigate(["/registration", student.id]);
   }
 
+  //navigating to register component
   navigateToRegister() {
     this.router.navigate(["/registration"]);
   }

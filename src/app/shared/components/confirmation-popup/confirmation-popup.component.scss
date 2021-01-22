@@ -1,0 +1,69 @@
+@import "/src/assets/styles/helpers/mixins";
+
+.confirmation-popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  .confirmation-content {
+    position: absolute;
+    top: 10vh;
+    background: #fff;
+    width: 40%;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    animation: popup 0.3s ease-in;
+
+    .header {
+      text-align: center;
+      @include font(20, bold);
+      padding-top: 1rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid #000;
+    }
+
+    .text {
+      text-align: center;
+      @include font(15, bold);
+      padding-top: 1rem;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 2rem 0;
+      .btn {
+        width: 20%;
+        padding: 0.6rem;
+        background: #150445;
+        color: #fff;
+        border-radius: 0.6rem;
+        @include font(15, semi);
+        &.yes {
+          background: transparent;
+          border: 1px solid #150445;
+          color: #150445;
+        }
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(0, -100%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}

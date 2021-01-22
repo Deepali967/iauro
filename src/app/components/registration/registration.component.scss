@@ -7,6 +7,15 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+  mat-error {
+    @include font(10, regular);
+  }
+
+  mat-option {
+    @include font(14, regular);
+  }
+
   mat-label {
     @include font(14, regular);
   }

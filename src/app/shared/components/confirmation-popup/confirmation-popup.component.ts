@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-confirmation-popup',
-  templateUrl: './confirmation-popup.component.html',
-  styleUrls: ['./confirmation-popup.component.scss']
+  selector: "app-confirmation-popup",
+  templateUrl: "./confirmation-popup.component.html",
+  styleUrls: ["./confirmation-popup.component.scss"]
 })
 export class ConfirmationPopupComponent implements OnInit {
+  @Output() handleCta: EventEmitter<any> = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  ctaAction(action) {
+    this.handleCta.emit(action);
   }
-
 }

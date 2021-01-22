@@ -15,35 +15,36 @@ export const GENDER = [
 
 export const LANGUAGES = [
   {
-    id: "eng",
+    id: "English",
     value: "English"
   },
   {
-    id: "hin",
+    id: "Marathi",
+    value: "Marathi"
+  },
+  {
+    id: "Hindi",
     value: "Hindi"
   },
   {
-    id: "Tel",
+    id: "Telugu",
     value: "Telugu"
   },
+
   {
-    id: "asm",
+    id: "Assamese",
     value: "Assamese"
   },
   {
-    id: "asm",
-    value: "Assamese"
-  },
-  {
-    id: "ben",
+    id: "Bengali",
     value: "Bengali"
   },
   {
-    id: "guj",
+    id: "Gujarati",
     value: "Gujarati"
   },
   {
-    id: "kan",
+    id: "Kannada",
     value: "Kannada"
   }
 ];

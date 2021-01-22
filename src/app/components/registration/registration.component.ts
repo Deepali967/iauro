@@ -86,10 +86,12 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  //get All the form controls
   get controls() {
     return this.registerFormGroup.controls;
   }
 
+  // fetch User By ID got in routing
   fetchUser() {
     this.restService
       .get(`${environment.API_HOST}/${this.id}`)
@@ -99,6 +101,7 @@ export class RegistrationComponent implements OnInit {
       });
   }
 
+  // Patch values of user got in fetchUser
   patchValuesToForm(formdata) {
     this.registerFormGroup.patchValue({
       name: formdata.name,
@@ -113,6 +116,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
+  // find invalid controls
   findInvalidControls() {
     const invalid = [];
     const controls = this.controls;
@@ -140,6 +144,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  // omit special characters while adding name
   omitSpecialChar(event) {
     let k;
     k = event.charCode; //         k = event.keyCode;  (Both can be used)
@@ -152,6 +157,7 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
+  // save register form
   saveRegisterForm() {
     console.log(this.registerFormGroup.value);
     if (!this.id) {
@@ -171,15 +177,18 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
+  //reset Register form
   resetForm() {
     this.registerFormGroup.reset();
   }
 
+  // view All students data
   viewTable() {
     this.router.navigate(["/display"]);
   }
 }
 
+// validate Age
 export function AgeValidator(
   control: AbstractControl
 ): { [key: string]: boolean } | null {

@@ -9,34 +9,6 @@ import { SharedModule } from "./shared/shared.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { MatButtonModule } from "@angular/material/button";
-import { MatCardModule } from "@angular/material/card";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
-import { MatRadioModule } from "@angular/material/radio";
-import { MatStepperModule } from "@angular/material/stepper";
-import { MatIconModule } from "@angular/material/icon";
-import { MatGridListModule } from "@angular/material/grid-list";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatCheckboxModule } from "@angular/material/checkbox";
-import { MatNativeDateModule } from "@angular/material/core";
-import { MatSelectModule } from "@angular/material/select";
-import { MatTableModule } from "@angular/material/table";
-const MatModules = [
-  MatButtonModule,
-  MatInputModule,
-  MatFormFieldModule,
-  MatStepperModule,
-  MatCardModule,
-  MatRadioModule,
-  MatIconModule,
-  MatGridListModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatCheckboxModule,
-  MatSelectModule,
-  MatTableModule
-];
 
 @NgModule({
   declarations: [AppComponent, ...fromComponents.components],
@@ -47,8 +19,7 @@ const MatModules = [
     SharedModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,
-    ...MatModules
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

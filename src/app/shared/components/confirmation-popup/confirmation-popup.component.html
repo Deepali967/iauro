@@ -1,1 +1,12 @@
-<p>confirmation-popup works!</p>
+<div class="confirmation-popup">
+  <div class="confirmation-content">
+    <h2 class="header">Confirmation</h2>
+
+    <div class="text">Are you sure you want to delete user?</div>
+
+    <div class="footer">
+      <button class="btn yes" (click)="ctaAction('yes')">Yes</button>
+      <button class="btn no" (click)="ctaAction('no')">No</button>
+    </div>
+  </div>
+</div>

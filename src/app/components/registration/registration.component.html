@@ -25,6 +25,12 @@
           >
             Minimum character length is 2 letters
           </mat-error>
+
+          <mat-error
+            *ngIf="controls.name.touched && controls.name.hasError('required')"
+          >
+            Please Enter Name
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -41,11 +47,9 @@
           />
 
           <mat-error
-            *ngIf="
-              controls.gender.touched && controls.gender.hasError('required')
-            "
+            *ngIf="controls.age.touched && controls.age.hasError('required')"
           >
-            Please select the gender
+            Please Enter Age
           </mat-error>
         </mat-form-field>
       </section>
@@ -74,8 +78,7 @@
 
           <mat-error
             *ngIf="
-              isAgeRequired ||
-              (controls.gender.touched && controls.gender.hasError('required'))
+              controls.gender.touched && controls.gender.hasError('required')
             "
           >
             Please select the gender
@@ -90,18 +93,48 @@
             [for]="picker"
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+
+          <mat-error
+            *ngIf="controls.dob.touched && controls.dob.hasError('required')"
+          >
+            Please add Date of Birth
+          </mat-error>
         </mat-form-field>
       </section>
 
       <section class="card1">
         <mat-form-field>
           <mat-label class="label">Phone Number*</mat-label>
-          <input matInput formControlName="mobileNumber" />
+          <input
+            matInput
+            pattern="[0-9]*"
+            inputmode="numeric"
+            maxlength="10"
+            (keypress)="keyPressNumbers($event)"
+            formControlName="mobileNumber"
+          />
+
+          <mat-error
+            *ngIf="
+              (controls.mobileNumber.touched &&
+                controls.mobileNumber.hasError('required')) ||
+              controls.emailId.errors?.pattern
+            "
+          >
+            Please Enter Valid Phone number
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label class="label">*Address:</mat-label>
-          <input matInput formControlName="address" />
+          <input matInput maxlength="100" formControlName="address" />
+          <mat-error
+            *ngIf="
+              controls.address.touched && controls.address.hasError('required')
+            "
+          >
+            Please Enter Address
+          </mat-error>
         </mat-form-field>
       </section>
 
@@ -116,6 +149,15 @@
               {{ language.value }}
             </mat-option>
           </mat-select>
+
+          <mat-error
+            *ngIf="
+              controls.language.touched &&
+              controls.language.hasError('required')
+            "
+          >
+            Please Select Language
+          </mat-error>
         </mat-form-field>
 
         <mat-radio-group

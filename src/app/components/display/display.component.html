@@ -53,7 +53,7 @@
           <div class="icon" (click)="editRow(student)">
             <img src="assets/images/edit.svg" alt="" />
           </div>
-          <div class="icon" (click)="deleteRow(student)">
+          <div class="icon" (click)="selectStudent(student)">
             <img src="assets/images/delete.png" alt="" />
           </div>
         </div>
@@ -63,4 +63,10 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+</div>
+
+<div class="confirmation-popup" *ngIf="showConfirmationPopup">
+  <app-confirmation-popup
+    (handleCta)="handleConfirmationBoxAction($event)"
+  ></app-confirmation-popup>
 </div>
