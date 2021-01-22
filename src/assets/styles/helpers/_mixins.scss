@@ -1,0 +1,24 @@
+@mixin flex-container($align: center, $justify: center, $direction: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin font($size, $family: regular) {
+  font-size: $size/14 + rem;
+
+  @if $family==regular {
+    font-family: PoppinsRegular;
+  } @else if $family==medium {
+    font-family: PoppinsMedium;
+  } @else if $family==light {
+    font-family: PoppinsLight;
+  } @else if ($family==semi) {
+    font-family: PoppinsSemiBold;
+  } @else if ($family==bold) {
+    font-family: PoppinsBold;
+  } @else if ($family==extra) {
+    font-family: PoppinsExtraBold;
+  }
+}

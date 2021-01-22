@@ -1,0 +1,28 @@
+{
+  "Students": [
+    {
+      "age": 23,
+      "address": "jhsdjhdfjhdf",
+      "emailId": "manedeepu73@gmail.co",
+      "mobileNumber": "8779503202",
+      "dob": "1997-04-24T18:30:00.000Z",
+      "name": "Priyanka Vadhava",
+      "gender": "f",
+      "language": "Tel",
+      "grade": "50-70",
+      "id": 1
+    },
+    {
+      "age": 24,
+      "address": "Thane west",
+      "emailId": "manedeepu73@gmail.com",
+      "mobileNumber": "8779503202",
+      "dob": "1997-04-24T18:30:00.000Z",
+      "name": "Deepali Rajendra Mane",
+      "gender": "f",
+      "language": "ben",
+      "grade": ">75",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+@import "/src/assets/styles/helpers/mixins";
+
+.registration-component {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  mat-label {
+    @include font(14, regular);
+  }
+
+  input {
+    font-size: 1.3rem;
+    @include font(14, semi);
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.8rem;
+    @include font(16, semi);
+  }
+
+  .registration-content {
+    height: 70vh;
+    width: 50%;
+    padding: 0.8rem;
+    border: 2px solid #150445;
+    border-radius: 0.6rem;
+  }
+
+  .view {
+    position: absolute;
+    top: 5vh;
+    right: 5vh;
+    padding: 0.6rem;
+    background: #150445;
+    color: #fff;
+    border-radius: 0.6rem;
+    @include font(15, semi);
+  }
+
+  form {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    background: #fff;
+    border-radius: 0.6rem;
+  }
+
+  .card1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    mat-form-field {
+      width: 40%;
+      margin: 0.8rem;
+    }
+    mat-radio-group {
+      width: 40%;
+      margin: 0.8rem;
+    }
+    .radio-btns {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  .card2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mat-form-field {
+      width: 90%;
+    }
+  }
+
+  .card3 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    mat-form-field {
+      width: 40%;
+      margin: 0.8rem;
+    }
+    mat-radio-group {
+      width: 40%;
+      margin: 0.8rem;
+    }
+    .radio-btns {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  .gender-value {
+    margin: 0.3rem;
+    @include font(15, semi);
+  }
+
+  .gender-label {
+    padding-right: 0.8rem;
+  }
+
+  .btn-next {
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .btn {
+      width: 20%;
+      padding: 0.6rem;
+      background: #150445;
+      color: #fff;
+      border-radius: 0.6rem;
+      @include font(15, semi);
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+mat-card-content {
+}
+
+.submit-block-response {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .submit-text {
+    margin: 0.8rem;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 20vh;
+    @include font(16, semi);
+  }
+
+  .view {
+    position: absolute;
+    top: 25vh;
+    padding: 0.6rem;
+    background: #150445;
+    color: #fff;
+    border-radius: 0.6rem;
+    @include font(16, semi);
+  }
+}

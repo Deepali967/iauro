@@ -1,0 +1,159 @@
+<div class="registration-component" *ngIf="!showSubmittedResponseBlock">
+  <button class="view" (click)="viewTable()">
+    View Student Table
+  </button>
+
+  <div class="registration-content">
+    <form [formGroup]="registerFormGroup">
+      <mat-card-header class="header text-center">
+        <mat-card-title class="text-center"
+          >Fill in the Details(All fields with asterisks * are
+          mandatory)</mat-card-title
+        >
+      </mat-card-header>
+
+      <section class="card1">
+        <mat-form-field>
+          <mat-label class="label">Name*</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            (keypress)="omitSpecialChar($event)"
+          />
+          <mat-error
+            *ngIf="controls.name.touched && controls.name.errors?.minlength"
+          >
+            Minimum character length is 2 letters
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label class="label">*Age:</mat-label>
+          <input
+            matInput
+            maxlength="2"
+            type="number"
+            (keypress)="keyPressNumbers($event)"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            formControlName="age"
+            autocomplete="off"
+          />
+
+          <mat-error
+            *ngIf="
+              controls.gender.touched && controls.gender.hasError('required')
+            "
+          >
+            Please select the gender
+          </mat-error>
+        </mat-form-field>
+      </section>
+
+      <section class="card2">
+        <mat-form-field>
+          <mat-label class="label">Email ID*</mat-label>
+          <input matInput formControlName="emailId" />
+          <mat-error
+            *ngIf="controls.emailId.touched && controls.emailId.errors?.pattern"
+          >
+            Please enter a valid e-mail address
+          </mat-error>
+        </mat-form-field>
+      </section>
+
+      <section class="card1">
+        <mat-radio-group aria-label="Select an Gender" formControlName="gender">
+          <mat-label class="gender-label">Gender:</mat-label>
+          <mat-radio-button
+            class="gender-value"
+            [value]="gender.id"
+            *ngFor="let gender of gender"
+            >{{ gender.value }}</mat-radio-button
+          >
+
+          <mat-error
+            *ngIf="
+              isAgeRequired ||
+              (controls.gender.touched && controls.gender.hasError('required'))
+            "
+          >
+            Please select the gender
+          </mat-error>
+        </mat-radio-group>
+
+        <mat-form-field>
+          <mat-label class="label">*Date of birth:</mat-label>
+          <input matInput formControlName="dob" [matDatepicker]="picker" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </section>
+
+      <section class="card1">
+        <mat-form-field>
+          <mat-label class="label">Phone Number*</mat-label>
+          <input matInput formControlName="mobileNumber" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label class="label">*Address:</mat-label>
+          <input matInput formControlName="address" />
+        </mat-form-field>
+      </section>
+
+      <section class="card3">
+        <mat-form-field appearance="fill">
+          <mat-label>Mother Tongue</mat-label>
+          <mat-select formControlName="language">
+            <mat-option
+              *ngFor="let language of languages"
+              [value]="language.id"
+            >
+              {{ language.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-radio-group
+          class="radio-btns"
+          aria-label="Select Your Grade"
+          formControlName="grade"
+        >
+          <mat-label class="gender-label">Grade</mat-label>
+          <mat-radio-button
+            class="gender-value"
+            [value]="grade.id"
+            *ngFor="let grade of grades"
+            >{{ grade.value }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </section>
+
+      <!-- <button mat-button mat-flat-button (click)="navigateToTnC();">Terms & Conditions</button> -->
+      <div class="btn-next">
+        <button class="btn" color="primary" (click)="resetForm()">
+          Reset
+        </button>
+        <button
+          class="btn"
+          color="primary"
+          [disabled]="registerFormGroup.invalid"
+          (click)="saveRegisterForm()"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="submit-block-response" *ngIf="showSubmittedResponseBlock">
+  <div class="submit-text">Your Response has been recorded.</div>
+  <button class="view" (click)="viewTable()">
+    View Student Table
+  </button>
+</div>
