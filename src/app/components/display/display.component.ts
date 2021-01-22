@@ -1,7 +1,8 @@
-import { RestService } from "./../../core/services/rest.service";
 import { Component, OnInit } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Router } from "@angular/router";
+
+import { RestService } from "./../../core/services/rest.service";
 
 @Component({
   selector: "app-display",

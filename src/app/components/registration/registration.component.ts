@@ -1,4 +1,3 @@
-import { LANGUAGES, GRADES } from "./../../../assets/constants/constants";
 import { Component, OnInit } from "@angular/core";
 import {
   FormGroup,
@@ -8,10 +7,16 @@ import {
   AbstractControl,
   FormControl
 } from "@angular/forms";
-import { GENDER } from "src/assets/constants/constants";
-import { RestService } from "src/app/core/services/rest.service";
 import { environment } from "src/environments/environment";
 import { Router, ActivatedRoute } from "@angular/router";
+
+import {
+  LANGUAGES,
+  GRADES,
+  GENDER
+} from "./../../../assets/constants/constants";
+
+import { RestService } from "src/app/core/services/rest.service";
 
 @Component({
   selector: "app-registration",
